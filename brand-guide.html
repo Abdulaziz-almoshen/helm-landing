@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Helm Brand Guide — Ruwad</title>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Urbanist',system-ui,sans-serif;color:#1D1D1D;background:#fff;line-height:1.6}
+
+/* Print-friendly page breaks */
+.page{min-height:100vh;padding:64px 72px;position:relative;page-break-after:always;overflow:hidden}
+.page:last-child{page-break-after:auto}
+@media print{.page{padding:48px 56px;min-height:auto;height:297mm}}
+
+/* Typography */
+h1{font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1.05}
+h2{font-size:36px;font-weight:800;letter-spacing:-1.2px;line-height:1.1;margin-bottom:24px}
+h3{font-size:22px;font-weight:700;letter-spacing:-.5px;margin-bottom:12px}
+h4{font-size:15px;font-weight:700;letter-spacing:-.2px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+p{font-size:15px;color:#4B5563;line-height:1.7;max-width:560px}
+.label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#9CA3AF;margin-bottom:8px}
+.subtle{font-size:13px;color:#6B7280;line-height:1.6}
+
+/* Layout */
+.flex{display:flex;gap:32px;align-items:flex-start}
+.flex--center{align-items:center}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px}
+.mt-auto{margin-top:auto}
+.mt-16{margin-top:16px}
+.mt-24{margin-top:24px}
+.mt-32{margin-top:32px}
+.mt-48{margin-top:48px}
+.mt-64{margin-top:64px}
+.mb-8{margin-bottom:8px}
+.mb-16{margin-bottom:16px}
+.mb-24{margin-bottom:24px}
+.spacer{height:40px}
+
+/* Divider */
+.divider{height:1px;background:#F0F0F0;margin:32px 0}
+
+/* Color tokens */
+:root{
+  --coral:#F76808;--amber:#F59E0B;--teal:#0D9488;
+  --success:#30D158;--error:#E5484D;
+  --ink:#1D1D1D;--ink-mid:#4B5563;--ink-light:#6B7280;
+}
+
+/* =========== COVER PAGE =========== */
+.cover{background:#0C0C0E;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.cover__badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.1);font-size:12px;font-weight:600;color:rgba(255,255,255,.5);backdrop-filter:blur(20px);background:rgba(255,255,255,.04)}
+.cover__title{font-size:72px;font-weight:800;letter-spacing:-3px;line-height:1.02;max-width:600px}
+.cover__accent{background:linear-gradient(135deg,#F76808,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover__sub{font-size:18px;color:rgba(255,255,255,.4);max-width:480px;line-height:1.6;margin-top:20px}
+.cover__logo{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#F76808,#F59E0B);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(247,104,8,.3)}
+.cover__logo::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 50%);pointer-events:none}
+.cover__logo svg{width:32px;height:32px}
+.cover__meta{font-size:13px;color:rgba(255,255,255,.25)}
+.cover__glow{position:absolute;bottom:-150px;right:-100px;width:600px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(247,104,8,.12),transparent 70%);pointer-events:none}
+
+/* =========== SWATCH =========== */
+.swatch{width:100%;aspect-ratio:1;border-radius:16px;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 14px;font-size:11px;font-weight:600;position:relative;overflow:hidden}
+.swatch::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,transparent 50%);pointer-events:none}
+.swatch--dark{color:rgba(255,255,255,.7)}
+.swatch--light{color:var(--ink);border:1px solid #F0F0F0}
+.swatch__name{font-size:13px;font-weight:700}
+.swatch__hex{opacity:.65;margin-top:2px;font-family:monospace;font-size:11px}
+
+/* =========== LOGO USAGE =========== */
+.logo-box{border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:center;min-height:160px}
+.logo-box--dark{background:#0C0C0E}
+.logo-box--light{background:#F5F7FA;border:1px solid #F0F0F0}
+.logo-box--gradient{background:linear-gradient(135deg,#F76808,#F59E0B)}
+.logo-box svg{width:120px;height:120px}
+
+/* =========== TYPE SPECIMEN =========== */
+.specimen{margin-bottom:24px}
+.specimen__sample{font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:4px}
+.specimen__meta{font-size:11px;color:#9CA3AF;font-family:monospace}
+
+/* =========== DO/DON'T =========== */
+.rule-card{border-radius:16px;padding:20px;border:1px solid #F0F0F0;position:relative}
+.rule-card--do{border-color:rgba(48,209,88,.2);background:rgba(48,209,88,.02)}
+.rule-card--dont{border-color:rgba(229,72,77,.2);background:rgba(229,72,77,.02)}
+.rule-card__badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.rule-card--do .rule-card__badge{color:var(--success)}
+.rule-card--dont .rule-card__badge{color:var(--error)}
+
+/* =========== GLASS DEMO =========== */
+.glass-demo{background:#0C0C0E;border-radius:24px;padding:48px;position:relative;overflow:hidden}
+.glass-demo__orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.glass-demo__card{background:rgba(255,255,255,.05);backdrop-filter:blur(40px) saturate(180%);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px;color:#fff;position:relative;overflow:hidden;max-width:300px;margin:0 auto}
+.glass-demo__card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.02) 40%,transparent 70%);pointer-events:none}
+
+/* =========== VOICE TABLE =========== */
+.voice-table{width:100%;border-collapse:collapse}
+.voice-table th{text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#9CA3AF;padding:8px 16px;border-bottom:1px solid #F0F0F0}
+.voice-table td{padding:12px 16px;font-size:14px;border-bottom:1px solid #F5F5F5;vertical-align:top}
+.voice-table td:first-child{font-weight:600;width:120px}
+.voice-table .yes{color:var(--success);font-weight:600}
+.voice-table .no{color:var(--error);font-weight:600}
+
+/* =========== VALUE PROP =========== */
+.value-card{background:#FAFAFA;border-radius:20px;padding:28px;border:1px solid #F0F0F0}
+.value-card__icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.value-card__icon--coral{background:rgba(247,104,8,.08)}
+.value-card__icon--amber{background:rgba(245,158,11,.08)}
+.value-card__icon--teal{background:rgba(13,148,136,.08)}
+
+@media(max-width:768px){
+  .page{padding:32px 24px}
+  h1{font-size:36px}
+  h2{font-size:28px}
+  .cover__title{font-size:48px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .flex{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     PAGE 1: COVER
+     ════════════════════════════════════════════ -->
+<div class="page cover">
+  <div>
+    <div class="cover__badge">Brand Identity Guide — 2026</div>
+  </div>
+  <div style="position:relative;z-index:1">
+    <div class="cover__logo">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="4.5" r="1.6" fill="#fff" opacity=".35"/><circle cx="13" cy="2.5" r="1.1" fill="#fff" opacity=".25"/><circle cx="19" cy="5.5" r="1" fill="#fff" opacity=".3"/><path d="M5 14.5 L9.5 19.5 L20 8" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="spacer"></div>
+    <h1 class="cover__title">Helm<br><span class="cover__accent">Brand Identity</span></h1>
+    <p class="cover__sub">A complete guide to the Helm brand system — from logo and color to voice and experience design. Every element exists to serve one idea: your thoughts deserve structure.</p>
+  </div>
+  <div>
+    <div class="cover__meta">Prepared by Ruwad &mdash; Confidential</div>
+  </div>
+  <div class="cover__glow"></div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 2: BRAND ESSENCE
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">01 — Brand Essence</div>
+  <h2>The idea behind Helm</h2>
+  <p class="mb-24">Every professional captures information all day — voice memos, meeting notes, photos, scattered thoughts. The tragedy is that most of it dies where it was born. Notes become graveyards. Ideas rot in messaging apps. Action items vanish between apps.</p>
+  <p class="mb-24"><strong>Helm exists to solve one problem:</strong> the gap between capturing a thought and acting on it. Our AI doesn't just store — it thinks, classifies, prioritizes, and hands you a specific next action for everything.</p>
+
+  <div class="divider"></div>
+
+  <div class="grid-3 mt-32">
+    <div>
+      <h4>Mission</h4>
+      <p>Turn scattered knowledge into structured action — automatically, in seconds.</p>
+    </div>
+    <div>
+      <h4>Vision</h4>
+      <p>A world where no professional idea is lost, forgotten, or left without a next step.</p>
+    </div>
+    <div>
+      <h4>Position</h4>
+      <p>The AI knowledge engine for professionals who think in Arabic, English, or both.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="label mt-32">Brand Promise</div>
+  <h3 style="font-size:32px;letter-spacing:-1.2px;max-width:500px">"Your brain captures.<br>Helm does the rest."</h3>
+  <p class="mt-16">This is the one sentence that captures everything. The user's job is to think, decide, and capture. Helm's job is everything after: structure, priority, action, memory.</p>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 3: LOGO
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">02 — Logo System</div>
+  <h2>The Helm Mark</h2>
+  <p class="mb-24">The Helm mark represents our core promise: scattered inputs converging into structured action. Three dots (chaos) flow into a bold checkmark (clarity). The gradient connects our warm, human brand to the precision of AI.</p>
+
+  <div class="grid-3 mt-32">
+    <div>
+      <div class="logo-box logo-box--dark">
+        <svg viewBox="0 0 512 512" fill="none"><defs><linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F76808"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs><rect width="512" height="512" rx="118" fill="#0C0C0E"/><circle cx="148" cy="128" r="22" fill="url(#lg1)" opacity=".3"/><circle cx="296" cy="92" r="16" fill="url(#lg1)" opacity=".22"/><circle cx="390" cy="156" r="14" fill="url(#lg1)" opacity=".28"/><path d="M148 308 L232 400 L396 210" stroke="url(#lg1)" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <p class="subtle mt-16">Primary — Dark background</p>
+    </div>
+    <div>
+      <div class="logo-box logo-box--light">
+        <svg viewBox="0 0 512 512" fill="none"><defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F76808"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs><rect width="512" height="512" rx="118" fill="#F5F7FA"/><circle cx="148" cy="128" r="22" fill="url(#lg2)" opacity=".25"/><circle cx="296" cy="92" r="16" fill="url(#lg2)" opacity=".18"/><circle cx="390" cy="156" r="14" fill="url(#lg2)" opacity=".22"/><path d="M148 308 L232 400 L396 210" stroke="url(#lg2)" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <p class="subtle mt-16">Light background variant</p>
+    </div>
+    <div>
+      <div class="logo-box logo-box--gradient">
+        <svg viewBox="0 0 512 512" fill="none"><circle cx="148" cy="128" r="22" fill="#fff" opacity=".25"/><circle cx="296" cy="92" r="16" fill="#fff" opacity=".18"/><circle cx="390" cy="156" r="14" fill="#fff" opacity=".22"/><path d="M148 308 L232 400 L396 210" stroke="#fff" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <p class="subtle mt-16">On gradient — white mark only</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Logo Anatomy</h3>
+  <div class="grid-2 mt-16">
+    <div>
+      <h4>The Three Dots</h4>
+      <p>Represent scattered inputs — voice memos, meeting notes, photos, ideas. Deliberately uneven in size and opacity to convey organic, human messiness.</p>
+    </div>
+    <div>
+      <h4>The Checkmark</h4>
+      <p>Represents structured action — the output. Bold, confident, glowing. The orange-to-amber gradient conveys warmth and energy. The glow filter adds depth and modernity.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Clear Space & Minimum Size</h3>
+  <p>Maintain clear space equal to the height of the checkmark stroke around all sides. Minimum size: 24px for digital, 10mm for print.</p>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 4: COLOR SYSTEM
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">03 — Color System</div>
+  <h2>Orange. Black. White.</h2>
+  <p class="mb-24">Three colors. No compromises. Orange is energy, action, warmth. Black is depth, intelligence, authority. White is clarity, space, breathing room. Every other color in the palette serves a functional purpose.</p>
+
+  <div class="label mt-32">Primary Palette</div>
+  <div class="grid-4 mt-16">
+    <div class="swatch swatch--dark" style="background:#F76808">
+      <div class="swatch__name">Coral</div>
+      <div class="swatch__hex">#F76808</div>
+    </div>
+    <div class="swatch swatch--dark" style="background:#F59E0B">
+      <div class="swatch__name">Amber</div>
+      <div class="swatch__hex">#F59E0B</div>
+    </div>
+    <div class="swatch swatch--dark" style="background:#0C0C0E">
+      <div class="swatch__name">Void</div>
+      <div class="swatch__hex">#0C0C0E</div>
+    </div>
+    <div class="swatch swatch--light" style="background:#FFFFFF">
+      <div class="swatch__name">White</div>
+      <div class="swatch__hex">#FFFFFF</div>
+    </div>
+  </div>
+
+  <div class="label mt-32">Gradient</div>
+  <div class="grid-2 mt-16">
+    <div class="swatch swatch--dark" style="background:linear-gradient(135deg,#F76808,#F59E0B);aspect-ratio:2;border-radius:16px">
+      <div class="swatch__name">Brand Gradient</div>
+      <div class="swatch__hex">135deg: #F76808 → #F59E0B</div>
+    </div>
+    <div class="swatch swatch--dark" style="background:linear-gradient(135deg,#F76808 0%,#F59E0B 50%,#FF8A65 100%);aspect-ratio:2;border-radius:16px">
+      <div class="swatch__name">Extended Gradient</div>
+      <div class="swatch__hex">+#FF8A65 (Peach tail)</div>
+    </div>
+  </div>
+
+  <div class="label mt-32">Ink System (Text)</div>
+  <div class="grid-4 mt-16">
+    <div class="swatch swatch--dark" style="background:#1D1D1D">
+      <div class="swatch__name">Ink</div>
+      <div class="swatch__hex">#1D1D1D</div>
+    </div>
+    <div class="swatch swatch--dark" style="background:#4B5563">
+      <div class="swatch__name">Ink Mid</div>
+      <div class="swatch__hex">#4B5563</div>
+    </div>
+    <div class="swatch swatch--light" style="background:#6B7280;color:#fff">
+      <div class="swatch__name">Ink Light</div>
+      <div class="swatch__hex">#6B7280</div>
+    </div>
+    <div class="swatch swatch--light" style="background:#9CA3AF;color:#fff">
+      <div class="swatch__name">Ink Faint</div>
+      <div class="swatch__hex">#9CA3AF</div>
+    </div>
+  </div>
+
+  <div class="label mt-32">Functional Colors</div>
+  <div class="grid-4 mt-16">
+    <div class="swatch swatch--dark" style="background:#0D9488">
+      <div class="swatch__name">Teal</div>
+      <div class="swatch__hex">#0D9488 — People</div>
+    </div>
+    <div class="swatch swatch--dark" style="background:#30D158">
+      <div class="swatch__name">Success</div>
+      <div class="swatch__hex">#30D158</div>
+    </div>
+    <div class="swatch swatch--dark" style="background:#E5484D">
+      <div class="swatch__name">Error / Urgent</div>
+      <div class="swatch__hex">#E5484D</div>
+    </div>
+    <div class="swatch swatch--light" style="background:#F5F7FA">
+      <div class="swatch__name">Off-white</div>
+      <div class="swatch__hex">#F5F7FA</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="grid-2">
+    <div class="rule-card rule-card--do">
+      <div class="rule-card__badge">&#10003; Do</div>
+      <p class="subtle">Use the gradient for primary CTAs, logo, and key accent moments. Orange is for action — use it sparingly to maintain impact.</p>
+    </div>
+    <div class="rule-card rule-card--dont">
+      <div class="rule-card__badge">&#10005; Don't</div>
+      <p class="subtle">Never use purple, blue, or any non-palette color as an accent. Never use orange for error states — red is for urgency. Never use flat orange without the gradient for the logo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 5: TYPOGRAPHY
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">04 — Typography</div>
+  <h2>Two typefaces. Two cultures.</h2>
+  <p class="mb-24">Helm serves Arabic and English equally. Our type system pairs Urbanist (geometric, modern Latin) with Noto Kufi Arabic (clean, authoritative Arabic). Both share a geometric DNA that creates visual harmony across languages.</p>
+
+  <div class="grid-2 mt-48">
+    <div>
+      <div class="specimen">
+        <div class="specimen__sample">Urbanist</div>
+        <div class="specimen__meta">Google Fonts — 300 to 800 weight range</div>
+      </div>
+      <p style="font-size:32px;font-weight:300;letter-spacing:-1px;color:#4B5563;line-height:1.2;margin-bottom:12px">Your notes don't just sit there.</p>
+      <p style="font-size:32px;font-weight:800;letter-spacing:-1.5px;line-height:1.2">They think.</p>
+      <div class="spacer"></div>
+      <div class="subtle">
+        <strong>Usage:</strong> All English text. Headlines use 800 weight with tight tracking (-2.5px). Body uses 400-500 at 15-16px. Never use below 300 weight.
+      </div>
+    </div>
+    <div>
+      <div class="specimen">
+        <div class="specimen__sample" style="font-family:'Noto Kufi Arabic',sans-serif;direction:rtl">نوتو كوفي</div>
+        <div class="specimen__meta">Google Fonts — 300 to 800 weight range</div>
+      </div>
+      <p style="font-family:'Noto Kufi Arabic',sans-serif;font-size:28px;font-weight:300;color:#4B5563;line-height:1.5;direction:rtl;margin-bottom:12px">أفكارك تستحق هيكلة.</p>
+      <p style="font-family:'Noto Kufi Arabic',sans-serif;font-size:28px;font-weight:800;line-height:1.5;direction:rtl">هيلم يفكر لك.</p>
+      <div class="spacer"></div>
+      <div class="subtle">
+        <strong>Usage:</strong> All Arabic text. Headings use 800 weight with 0 letter-spacing (Kufi has natural spacing). RTL direction set at document level. Line height: 1.8 for body text.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Type Scale</h3>
+  <div class="mt-16">
+    <div style="display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid #F5F5F5">
+      <span style="font-size:48px;font-weight:800;letter-spacing:-2px;flex:1">Headline 1</span>
+      <span class="subtle" style="min-width:160px">48px / 800 / -2.5px</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid #F5F5F5">
+      <span style="font-size:36px;font-weight:800;letter-spacing:-1.2px;flex:1">Headline 2</span>
+      <span class="subtle" style="min-width:160px">36px / 800 / -1.2px</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid #F5F5F5">
+      <span style="font-size:22px;font-weight:700;letter-spacing:-.5px;flex:1">Heading 3</span>
+      <span class="subtle" style="min-width:160px">22px / 700 / -.5px</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid #F5F5F5">
+      <span style="font-size:15px;font-weight:500;flex:1">Body text for reading</span>
+      <span class="subtle" style="min-width:160px">15px / 500 / 0</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid #F5F5F5">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#9CA3AF;flex:1">LABEL / OVERLINE</span>
+      <span class="subtle" style="min-width:160px">12px / 600 / .5px UC</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 6: LIQUID GLASS DESIGN LANGUAGE
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">05 — Liquid Glass Design Language</div>
+  <h2>Depth without weight</h2>
+  <p class="mb-24">Inspired by Apple's Liquid Glass, Helm's UI language uses translucent layers, frosted blur, and subtle light refraction to create depth without heaviness. Every surface feels like it floats above the content behind it.</p>
+
+  <div class="glass-demo mt-32">
+    <div class="glass-demo__orb" style="width:200px;height:200px;background:rgba(247,104,8,.2);top:-50px;left:-50px"></div>
+    <div class="glass-demo__orb" style="width:150px;height:150px;background:rgba(245,158,11,.15);bottom:-30px;right:20%"></div>
+    <div class="glass-demo__card">
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Glass Card</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:6px">Translucent depth</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.5">Background blur + inner light + subtle border = glass that breathes.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Glass Properties</h3>
+  <div class="grid-2 mt-16">
+    <div>
+      <h4>Dark Glass</h4>
+      <div style="font-family:monospace;font-size:12px;background:#FAFAFA;border-radius:12px;padding:16px;line-height:1.8;color:#4B5563;border:1px solid #F0F0F0">
+        background: rgba(255,255,255, 0.04);<br>
+        backdrop-filter: blur(40px) saturate(180%);<br>
+        border: 1px solid rgba(255,255,255, 0.08);<br>
+        box-shadow:<br>
+        &nbsp;&nbsp;inset 0 1px 0 rgba(255,255,255, 0.08),<br>
+        &nbsp;&nbsp;0 8px 32px rgba(0,0,0, 0.12);<br>
+        /* Top-left light refraction */<br>
+        background: linear-gradient(135deg,<br>
+        &nbsp;&nbsp;rgba(255,255,255, 0.1) 0%,<br>
+        &nbsp;&nbsp;transparent 50%);
+      </div>
+    </div>
+    <div>
+      <h4>Light Glass</h4>
+      <div style="font-family:monospace;font-size:12px;background:#FAFAFA;border-radius:12px;padding:16px;line-height:1.8;color:#4B5563;border:1px solid #F0F0F0">
+        background: rgba(255,255,255, 0.55);<br>
+        backdrop-filter: blur(40px) saturate(180%);<br>
+        border: 1px solid rgba(255,255,255, 0.6);<br>
+        box-shadow:<br>
+        &nbsp;&nbsp;inset 0 1px 0 rgba(255,255,255, 0.7),<br>
+        &nbsp;&nbsp;0 8px 32px rgba(0,0,0, 0.04);<br>
+        /* Top-left light refraction */<br>
+        background: linear-gradient(135deg,<br>
+        &nbsp;&nbsp;rgba(255,255,255, 0.5) 0%,<br>
+        &nbsp;&nbsp;transparent 50%);
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Rules</h3>
+  <div class="grid-2 mt-16">
+    <div class="rule-card rule-card--do">
+      <div class="rule-card__badge">&#10003; Do</div>
+      <p class="subtle">Use glass for nav bars, floating cards, badges, overlays, and CTAs. Glass works best when there's visible content behind it. The 135deg light refraction gradient must always go top-left to bottom-right.</p>
+    </div>
+    <div class="rule-card rule-card--dont">
+      <div class="rule-card__badge">&#10005; Don't</div>
+      <p class="subtle">Don't use glass on static content with no depth context. Don't stack more than 2 glass layers. Don't use glass blur below 20px — it looks muddy. Never omit the inset top highlight — it's the key to the glass illusion.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 7: BRAND VOICE
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">06 — Brand Voice</div>
+  <h2>How Helm speaks</h2>
+  <p class="mb-24">Helm's voice is confident without being arrogant. Direct without being cold. Technical enough to be credible, human enough to be approachable. We speak like a trusted senior colleague — not a sales brochure.</p>
+
+  <div class="mt-32">
+    <table class="voice-table">
+      <thead>
+        <tr><th>Attribute</th><th>We are</th><th>We are not</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tone</td><td class="yes">Confident, direct, warm</td><td class="no">Hype-driven, buzzwordy, cold</td></tr>
+        <tr><td>Language</td><td class="yes">Short sentences, active voice, specific</td><td class="no">Jargon-heavy, passive, vague</td></tr>
+        <tr><td>Claims</td><td class="yes">Show, don't tell — demonstrate with real examples</td><td class="no">"Revolutionary AI" / "Best-in-class"</td></tr>
+        <tr><td>Technical</td><td class="yes">Explain clearly — "6-layer AI pipeline"</td><td class="no">Hide behind abstraction — "smart technology"</td></tr>
+        <tr><td>Arabic</td><td class="yes">Native, natural — as if thinking in Arabic</td><td class="no">Translated-from-English stiffness</td></tr>
+        <tr><td>Humor</td><td class="yes">Dry wit in copy, never in UI labels</td><td class="no">Forced jokes, emoji overuse</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Copy Principles</h3>
+  <div class="grid-3 mt-16">
+    <div>
+      <h4>Lead with the outcome</h4>
+      <p class="subtle">"Prioritized tasks in 6 seconds" not "Our AI processes your notes"</p>
+    </div>
+    <div>
+      <h4>Be specific</h4>
+      <p class="subtle">"Send Ahmed the 500K decision by Thursday" not "Follow up on action items"</p>
+    </div>
+    <div>
+      <h4>Respect the user's intelligence</h4>
+      <p class="subtle">Don't explain what a meeting is. Do explain what makes our processing different.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Bilingual Strategy</h3>
+  <p class="mb-16">Helm is Arabic-first by default (Saudi market). Every piece of copy must work natively in both Arabic and English. Arabic is never a translation — it's written by Arabic speakers, for Arabic thinkers.</p>
+  <div class="grid-2 mt-16">
+    <div>
+      <h4>English</h4>
+      <p style="font-size:20px;font-weight:700;letter-spacing:-.5px;margin-bottom:4px">"Your brain captures. Helm does the rest."</p>
+      <p class="subtle">Direct, punchy, active voice.</p>
+    </div>
+    <div>
+      <h4 style="font-family:'Noto Kufi Arabic';direction:rtl;text-align:right">العربية</h4>
+      <p style="font-family:'Noto Kufi Arabic';font-size:20px;font-weight:700;direction:rtl;text-align:right;margin-bottom:4px">"أنت تلتقط. هيلم يرتّب الباقي."</p>
+      <p class="subtle" style="text-align:right;direction:rtl">طبيعي، مباشر، كأنك تكلم زميل.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 8: VALUE PROPOSITION
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">07 — Value Proposition</div>
+  <h2>Three pillars. One promise.</h2>
+  <p class="mb-24">Every feature, every screen, every word in Helm serves one of these three pillars. If something doesn't serve a pillar, it doesn't belong.</p>
+
+  <div class="grid-3 mt-48">
+    <div class="value-card">
+      <div class="value-card__icon value-card__icon--amber">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>
+      </div>
+      <h3>Capture anything</h3>
+      <p class="subtle">Voice, text, photos, PDFs, scans — mixed freely in one thread. No templates, no formatting. Offline-capable. The lowest friction capture experience possible.</p>
+      <div class="spacer"></div>
+      <div class="label">Key message</div>
+      <p style="font-weight:700;font-size:14px">"Dump it all. Helm sorts it out."</p>
+    </div>
+    <div class="value-card">
+      <div class="value-card__icon value-card__icon--coral">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F76808" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>AI thinks for you</h3>
+      <p class="subtle">Six-layer pipeline in ~6 seconds: extract facts, classify urgency (Eisenhower Matrix), plan actions, research context, map people, build memory. Not "smart search" — structured reasoning.</p>
+      <div class="spacer"></div>
+      <div class="label">Key message</div>
+      <p style="font-weight:700;font-size:14px">"It doesn't just record. It reasons."</p>
+    </div>
+    <div class="value-card">
+      <div class="value-card__icon value-card__icon--teal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>Never drop the ball</h3>
+      <p class="subtle">Every input produces a specific next action — not "follow up" but "Send Ahmed the 500K decision by Thursday." Tasks auto-prioritized. People tracked. Nothing falls through.</p>
+      <div class="spacer"></div>
+      <div class="label">Key message</div>
+      <p style="font-weight:700;font-size:14px">"A next step for everything."</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Competitive Frame</h3>
+  <div class="grid-2 mt-16">
+    <div>
+      <h4>What we replace</h4>
+      <p class="subtle">Apple Notes + Notion + WhatsApp voice notes + manual task management + "I'll remember that" (you won't).</p>
+    </div>
+    <div>
+      <h4>What we are NOT</h4>
+      <p class="subtle">Not a note-taking app (we structure, not store). Not a project management tool (we feed them). Not a chatbot (we reason, not chat).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 9: LOCALIZATION & CULTURAL IDENTITY
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">08 — Localization & Cultural Identity</div>
+  <h2>Arabic is not a feature.<br>It's our identity.</h2>
+  <p class="mb-24">Helm was born for the Saudi professional market. Arabic isn't bolted on — it's the foundation. RTL layout, Hijri calendar awareness, ZATCA regulatory context, and natural Arabic output are defaults, not options.</p>
+
+  <div class="grid-2 mt-48">
+    <div>
+      <h4>Language Detection</h4>
+      <p class="subtle mb-16">The app auto-detects Arabic, English, or mixed input. Output always matches the input language. An Arabic voice memo produces Arabic tasks, minutes, and action hints. Never translates unless asked.</p>
+      <h4 class="mt-24">Default: Arabic</h4>
+      <p class="subtle">The landing page defaults to Arabic for Saudi visitors (browser language detection). The app UI follows system language. All marketing materials are bilingual.</p>
+    </div>
+    <div>
+      <h4>RTL Implementation</h4>
+      <p class="subtle mb-16">Full RTL support via <code>dir="rtl"</code> at the document level. All layouts use flexbox/grid — no floats. Border-left accents become border-right. Chevrons flip. Text alignment reverses. The Noto Kufi Arabic typeface is loaded alongside Urbanist.</p>
+      <h4 class="mt-24">Cultural Context</h4>
+      <p class="subtle">Hijri calendar in date references. Saudi Riyal (SAR) with official symbol in pricing. ZATCA compliance in business examples. Local names (Ahmed, Sara) in demos. This is not localization — it's authenticity.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>i18n Architecture</h3>
+  <p class="subtle mb-16">The landing page uses a custom i18n engine (<code>i18n.js</code>) with 289 English keys and 260 Arabic keys. Translation is attribute-based: <code>data-i18n</code> for text, <code>data-i18n-html</code> for rich content, <code>data-i18n-attr</code> for attributes.</p>
+  <div class="grid-3 mt-16">
+    <div>
+      <h4>Detection Priority</h4>
+      <p class="subtle">1. URL param (<code>?lang=ar</code>)<br>2. localStorage (<code>helm_lang</code>)<br>3. Browser language<br>4. Default: Arabic</p>
+    </div>
+    <div>
+      <h4>Language Toggle</h4>
+      <p class="subtle">Always visible in nav. Glass-styled pill button. Switches instantly — no page reload. Persists choice in localStorage.</p>
+    </div>
+    <div>
+      <h4>Content Parity</h4>
+      <p class="subtle">All marketing copy must exist in both languages before publishing. Arabic is written natively, never machine-translated. Tone and specificity must match.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 10: EXPERIENCE PRINCIPLES
+     ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="label">09 — Experience Principles</div>
+  <h2>Design like Steve.<br>Ship like Jony.</h2>
+  <p class="mb-24">These principles govern every design decision in Helm — from pixel spacing to pipeline architecture. When in doubt, return here.</p>
+
+  <div class="grid-2 mt-48" style="gap:24px">
+    <div style="padding:28px;background:#FAFAFA;border-radius:20px;border:1px solid #F0F0F0">
+      <div style="font-size:48px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:12px">01</div>
+      <h3>Capture friction = 0</h3>
+      <p class="subtle">The distance between "I have a thought" and "it's captured" must be as close to zero as possible. No templates. No categories. No formatting. Open thread, talk, done.</p>
+    </div>
+    <div style="padding:28px;background:#FAFAFA;border-radius:20px;border:1px solid #F0F0F0">
+      <div style="font-size:48px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:12px">02</div>
+      <h3>Show the reasoning</h3>
+      <p class="subtle">AI is a black box elsewhere. In Helm, every classification shows its reasoning. "Why Do Now? Because Ahmed's contract has a Thursday deadline with 500K implications." Transparency builds trust.</p>
+    </div>
+    <div style="padding:28px;background:#FAFAFA;border-radius:20px;border:1px solid #F0F0F0">
+      <div style="font-size:48px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:12px">03</div>
+      <h3>Action, not information</h3>
+      <p class="subtle">The output is never "here's your summary." It's "here's your next action, prioritized, with a deadline and an owner." Every screen ends with a verb.</p>
+    </div>
+    <div style="padding:28px;background:#FAFAFA;border-radius:20px;border:1px solid #F0F0F0">
+      <div style="font-size:48px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:12px">04</div>
+      <h3>Human in the loop</h3>
+      <p class="subtle">AI proposes, human confirms. The workspace agent never writes data without approval. This isn't a limitation — it's a feature. "Two-phase: AI proposes, you confirm."</p>
+    </div>
+    <div style="padding:28px;background:#FAFAFA;border-radius:20px;border:1px solid #F0F0F0">
+      <div style="font-size:48px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:12px">05</div>
+      <h3>Every note makes the next one smarter</h3>
+      <p class="subtle">The Knowledge Engine learns goals, people, patterns, facts. Capture 10 notes about Ahmed and the 11th already knows his role, your relationship, and the context. Compounding intelligence.</p>
+    </div>
+    <div style="padding:28px;background:#FAFAFA;border-radius:20px;border:1px solid #F0F0F0">
+      <div style="font-size:48px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:12px">06</div>
+      <h3>Depth through glass</h3>
+      <p class="subtle">Every layer of the UI communicates its depth through translucency. Cards float. Backgrounds breathe. Light refracts. The interface feels alive — not flat, not skeuomorphic, but liquid.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 11: APPLICATION & CLOSING
+     ════════════════════════════════════════════ -->
+<div class="page" style="display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div class="label">10 — Application Summary</div>
+    <h2>Quick reference</h2>
+
+    <div class="grid-2 mt-32">
+      <div>
+        <h4>Logo files</h4>
+        <p class="subtle"><code>helm-logo.svg</code> — Primary mark (dark bg)<br>Use white mark on gradient backgrounds<br>Min size: 24px digital / 10mm print</p>
+      </div>
+      <div>
+        <h4>Primary colors</h4>
+        <p class="subtle">Coral #F76808 + Amber #F59E0B (gradient)<br>Void #0C0C0E (dark surfaces)<br>White #FFFFFF (light surfaces)</p>
+      </div>
+      <div>
+        <h4>Typography</h4>
+        <p class="subtle">English: Urbanist (Google Fonts)<br>Arabic: Noto Kufi Arabic (Google Fonts)<br>Headlines: 800 weight, tight tracking</p>
+      </div>
+      <div>
+        <h4>Design language</h4>
+        <p class="subtle">Liquid Glass — blur(40px), saturate(180%)<br>Inset highlight on every glass surface<br>135deg light refraction gradient</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Never do these</h3>
+    <div class="grid-3 mt-16">
+      <div class="rule-card rule-card--dont">
+        <div class="rule-card__badge">&#10005;</div>
+        <p class="subtle">Use purple or blue as accent colors. The palette is orange/black/white. Period.</p>
+      </div>
+      <div class="rule-card rule-card--dont">
+        <div class="rule-card__badge">&#10005;</div>
+        <p class="subtle">Translate Arabic from English. Write it natively or don't write it.</p>
+      </div>
+      <div class="rule-card rule-card--dont">
+        <div class="rule-card__badge">&#10005;</div>
+        <p class="subtle">Say "revolutionary" or "best-in-class." Show the 6-second pipeline instead.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding-top:64px">
+    <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#F76808,#F59E0B);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 50%)"></div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="4.5" r="1.6" fill="#fff" opacity=".35"/><circle cx="13" cy="2.5" r="1.1" fill="#fff" opacity=".25"/><circle cx="19" cy="5.5" r="1" fill="#fff" opacity=".3"/><path d="M5 14.5 L9.5 19.5 L20 8" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span style="font-size:24px;font-weight:800;letter-spacing:-.5px">Helm</span>
+    </div>
+    <p class="subtle" style="max-width:400px;margin:0 auto">Built by Ruwad. Your ideas deserve better than a bullet list.</p>
+    <p style="font-size:11px;color:#9CA3AF;margin-top:16px">Brand Guide v1.0 — March 2026 — Confidential</p>
+  </div>
+</div>
+
+</body>
+</html>
