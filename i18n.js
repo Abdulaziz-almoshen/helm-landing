@@ -226,6 +226,7 @@
       'cta.error': "Couldn't connect. Try again?",
 
       // Footer
+      'footer.support': 'Support',
       'footer.privacy': 'Privacy',
       'footer.terms': 'Terms',
       'footer.contact': 'Contact',
@@ -463,6 +464,7 @@
       'cta.error': 'ما قدرنا نتصل. حاول مرة ثانية؟',
 
       // Footer
+      'footer.support': 'الدعم',
       'footer.privacy': 'الخصوصية',
       'footer.terms': 'الشروط',
       'footer.contact': 'تواصل معنا',
