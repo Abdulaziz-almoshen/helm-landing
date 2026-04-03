@@ -1,48 +1,250 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support - Helm by Ruwad</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; line-height: 1.6; color: #1a1a1a; background: #fff; padding: 24px; max-width: 720px; margin: 0 auto; }
-    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-    h2 { font-size: 20px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
-    p, li { font-size: 15px; margin-bottom: 12px; color: #333; }
-    .brand { font-size: 13px; color: #888; margin-top: 40px; text-align: center; }
-    a { color: #1A56DB; }
-    .contact-card { background: #f8f9fa; border-radius: 12px; padding: 24px; margin-top: 24px; }
-    .contact-card a { display: block; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — Helm by Ruwad</title>
+<meta name="description" content="Get help with Helm. Contact our team, browse FAQs, and troubleshoot common issues.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111'/%3E%3Ctext x='50' y='70' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='60' fill='white'%3EH%3C/text%3E%3Crect x='22' y='46' width='24' height='5' rx='2.5' fill='%23E08050'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+
+:root{
+  --ink:#111111;
+  --ink-mid:#444444;
+  --ink-light:#666666;
+  --muted:#888888;
+  --border:#E5E5E5;
+  --surface:#F8F9FA;
+  --accent:#E08050;
+  --accent-light:#FEF0E8;
+  --white:#FFFFFF;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;
+  color:var(--ink);background:var(--white);line-height:1.6;
+}
+
+/* === NAV (matches landing) === */
+.nav{padding:10px 24px;border-bottom:1px solid var(--border)}
+.nav__bar{max-width:1120px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav__brand{font-weight:800;font-size:22px;letter-spacing:-.5px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:2px}
+.nav__brand-cross{display:inline-block;width:12px;height:3.5px;border-radius:2px;background:linear-gradient(90deg,#E08050,#F0A878);margin-left:-14px;margin-bottom:-1px;opacity:.85}
+.nav__back{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav__back:hover{color:var(--ink)}
+
+/* === HERO === */
+.hero{position:relative;overflow:hidden;padding:80px 24px 60px;text-align:center}
+.hero .blob{position:absolute;pointer-events:none;z-index:0}
+.blob-1{
+  width:600px;height:500px;
+  background:linear-gradient(135deg,rgba(224,128,80,.14) 0%,rgba(240,168,120,.08) 100%);
+  border-radius:40% 60% 70% 30% / 40% 50% 60% 50%;
+  filter:blur(50px);
+  top:-150px;right:-200px;
+}
+.blob-2{
+  width:400px;height:350px;
+  background:linear-gradient(225deg,rgba(224,128,80,.1) 0%,transparent 100%);
+  border-radius:60% 40% 30% 70% / 50% 60% 40% 50%;
+  filter:blur(60px);
+  bottom:-100px;left:-100px;
+}
+.hero__inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero__tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;border:1px solid var(--border);color:var(--muted);background:var(--white);margin-bottom:20px}
+.hero__tag-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px}
+.hero p{font-size:17px;color:var(--ink-light);max-width:480px;margin:0 auto}
+
+/* === CONTACT CARD === */
+.contact{max-width:720px;margin:-20px auto 0;padding:0 24px;position:relative;z-index:2}
+.contact__card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:32px;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.contact__row{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.contact__row:last-child{margin-bottom:0}
+.contact__icon{width:40px;height:40px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.contact__label{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.contact__value{font-size:16px;font-weight:600;color:var(--ink)}
+.contact__value a{color:var(--accent);text-decoration:none}
+.contact__value a:hover{text-decoration:underline}
+.contact__note{font-size:14px;color:var(--ink-light);margin-top:2px}
+
+/* === SECTIONS === */
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+.section{padding:48px 0}
+.section__h{font-size:22px;font-weight:700;letter-spacing:-.5px;margin-bottom:24px;color:var(--ink)}
+
+/* === FAQ === */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;background:none;border:none;width:100%;text-align:left;padding:0;font-family:inherit;line-height:1.5}
+.faq-q::after{content:'+';font-size:20px;font-weight:400;color:var(--muted);transition:transform .2s;flex-shrink:0}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:200px;padding-top:10px}
+.faq-a p{font-size:14px;color:var(--ink-light);line-height:1.6}
+
+/* === TROUBLESHOOTING === */
+.tip{background:var(--surface);border-radius:12px;padding:20px 24px;margin-bottom:12px}
+.tip__title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.tip__body{font-size:14px;color:var(--ink-light);line-height:1.6}
+
+/* === FOOTER === */
+.footer{background:var(--surface);color:var(--muted);padding:32px 24px;border-top:1px solid var(--border);margin-top:48px}
+.footer__inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer__brand{font-size:18px;font-weight:800;color:var(--ink)}
+.footer__links{display:flex;gap:24px;list-style:none}
+.footer__links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer__links a:hover{color:var(--ink)}
+.footer__copy{font-size:12px}
+
+@media(max-width:600px){
+  .hero{padding:60px 20px 40px}
+  .contact__card{padding:24px}
+  .footer__inner{flex-direction:column;text-align:center}
+}
+
+/* === RTL === */
+html[dir="rtl"] body,
+html[dir="rtl"] .faq-q,
+html[dir="rtl"] .tip__title,
+html[dir="rtl"] .tip__body{
+  font-family:'Noto Sans Arabic',-apple-system,system-ui,sans-serif;
+}
+html[dir="rtl"] .faq-q{text-align:right}
+</style>
 </head>
 <body>
-  <h1>Support</h1>
-  <p>Need help with Helm? We're here for you.</p>
 
-  <h2>Frequently Asked Questions</h2>
-
-  <h3>How does AI processing work?</h3>
-  <p>When you capture content (voice, text, or images), Helm's AI analyzes it to extract tasks, decisions, and summaries. Processing requires an internet connection.</p>
-
-  <h3>Is my data secure?</h3>
-  <p>Yes. All data is encrypted in transit using TLS/HTTPS and stored securely on cloud infrastructure. Your data is workspace-scoped and only accessible to authenticated members.</p>
-
-  <h3>How do I delete my account?</h3>
-  <p>Go to Settings (tap your avatar) > scroll to "Delete Account". This permanently removes your account and all associated data.</p>
-
-  <h3>Does Helm work offline?</h3>
-  <p>You can capture content offline. It will sync and process when you reconnect to the internet.</p>
-
-  <h3>What languages are supported?</h3>
-  <p>Helm supports English and Arabic. The AI automatically detects your input language and responds accordingly.</p>
-
-  <div class="contact-card">
-    <h2>Contact Us</h2>
-    <a href="mailto:support@ruwad.solutions">support@ruwad.solutions</a>
-    <p>We typically respond within 24 hours.</p>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__bar">
+    <a href="https://ruwad.solutions" class="nav__brand">Hel<span class="nav__brand-cross"></span>m</a>
+    <a href="https://ruwad.solutions" class="nav__back">&larr; Back to Helm</a>
   </div>
+</nav>
 
-  <p class="brand">Helm by Ruwad &copy; 2026</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="hero__inner">
+    <div class="hero__tag"><span class="hero__tag-dot"></span> Support</div>
+    <h1>How can we help?</h1>
+    <p>Find answers below or reach out directly. We respond to every message.</p>
+  </div>
+</section>
+
+<!-- CONTACT CARD -->
+<div class="contact">
+  <div class="contact__card">
+    <div class="contact__row">
+      <div class="contact__icon">&#9993;</div>
+      <div>
+        <div class="contact__label">Email</div>
+        <div class="contact__value"><a href="mailto:abdulaziz@ruwad.ai">abdulaziz@ruwad.ai</a></div>
+        <div class="contact__note">We typically respond within 24 hours on business days.</div>
+      </div>
+    </div>
+    <div class="contact__row">
+      <div class="contact__icon">&#127760;</div>
+      <div>
+        <div class="contact__label">Languages</div>
+        <div class="contact__value">English &amp; Arabic</div>
+        <div class="contact__note">Write to us in whichever language you prefer.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="wrap">
+  <section class="section">
+    <h2 class="section__h">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q">How does AI processing work?</button>
+      <div class="faq-a"><p>When you capture content (voice, text, or images), Helm's AI analyzes it to extract tasks, decisions, and summaries. Processing requires an internet connection and typically completes within a few seconds.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Is my data secure?</button>
+      <div class="faq-a"><p>Yes. All data is encrypted in transit using TLS/HTTPS and stored securely on cloud infrastructure. Your data is workspace-scoped and only accessible to authenticated workspace members.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do I delete my account?</button>
+      <div class="faq-a"><p>Open the app, tap your avatar to go to Settings, then scroll down and tap "Delete Account". You will be asked to confirm twice. This permanently removes your account and all associated data, including all workspaces you own.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I recover a deleted account?</button>
+      <div class="faq-a"><p>No. Account deletion is permanent and irreversible. All your data, workspaces, and content are permanently removed from our servers.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Does Helm work offline?</button>
+      <div class="faq-a"><p>You can capture content (voice, text, images) while offline. Your captures are saved locally as drafts and will sync and process automatically when you reconnect to the internet.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What languages are supported?</button>
+      <div class="faq-a"><p>Helm supports English and Arabic. The AI automatically detects your input language and responds in the same language.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do I manage my subscription?</button>
+      <div class="faq-a"><p>Go to Settings (tap your avatar) and tap your current plan. From there you can view plan details, upgrade, or manage your subscription.</p></div>
+    </div>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="section" style="padding-top:0">
+    <h2 class="section__h">Troubleshooting</h2>
+
+    <div class="tip">
+      <div class="tip__title">Content is not processing</div>
+      <div class="tip__body">Ensure you have an active internet connection. If the issue persists, try closing and reopening the app, then resubmit your capture.</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip__title">Voice recording is not working</div>
+      <div class="tip__body">Make sure you have granted Helm microphone permission. Go to your device Settings > Helm > Microphone and ensure it is enabled.</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip__title">App is running slowly</div>
+      <div class="tip__body">Try closing and reopening the app. If the issue persists, ensure your device has the latest iOS update installed and contact us at abdulaziz@ruwad.ai.</div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">Helm</div>
+    <ul class="footer__links">
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="mailto:abdulaziz@ruwad.ai">Contact</a></li>
+    </ul>
+    <div class="footer__copy">&copy; 2026 Ruwad. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=this.parentElement;
+    var wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(el){el.classList.remove('open')});
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+</script>
 </body>
 </html>
