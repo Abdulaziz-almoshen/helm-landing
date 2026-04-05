@@ -16,189 +16,367 @@
       --ink-mid:#444444;
       --ink-light:#666666;
       --muted:#888888;
+      --muted-light:#AAAAAA;
       --border:#E5E5E5;
+      --border-light:#F0F0F0;
       --surface:#F8F9FA;
       --accent:#E08050;
       --accent-light:#FEF0E8;
+      --blue:#1A56DB;
+      --blue-light:#EFF6FF;
       --white:#FFFFFF;
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.02);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.04),0 2px 6px rgba(0,0,0,0.02);
     }
-    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.7}
-    .nav{padding:10px 24px;border-bottom:1px solid var(--border)}
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,'Noto Sans Arabic',sans-serif;
+      color:var(--ink);background:var(--white);line-height:1.7;
+    }
+
+    /* ── Nav ── */
+    .nav{padding:10px 24px;border-bottom:1px solid var(--border);background:var(--white);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(255,255,255,0.92)}
     .nav__bar{max-width:720px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between}
     .nav__brand{font-weight:800;font-size:22px;letter-spacing:-.5px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:2px}
     .nav__brand-cross{display:inline-block;width:12px;height:3.5px;border-radius:2px;background:linear-gradient(90deg,#E08050,#F0A878);margin-left:-14px;margin-bottom:-1px;opacity:.85}
-    .nav__back{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav__back{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
     .nav__back:hover{color:var(--ink)}
+    .nav__back svg{width:16px;height:16px;transition:transform .2s}
+    .nav__back:hover svg{transform:translateX(-2px)}
+
+    /* ── Hero ── */
+    .hero{max-width:720px;margin:0 auto;padding:64px 24px 0}
+    .hero__label{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    .hero__label svg{width:14px;height:14px}
+    .hero h1{font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;color:var(--ink)}
+    .hero__sub{font-size:17px;color:var(--ink-light);line-height:1.6;margin-bottom:8px}
+    .hero__date{font-size:13px;color:var(--muted);margin-bottom:0}
+
+    /* ── TOC ── */
+    .toc{max-width:720px;margin:0 auto;padding:40px 24px 0}
+    .toc__card{background:var(--surface);border:1px solid var(--border-light);border-radius:12px;padding:24px 28px;box-shadow:var(--shadow-sm)}
+    .toc__title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:16px}
+    .toc__grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;list-style:none;padding:0}
+    .toc__grid li{margin:0}
+    .toc__grid a{font-size:14px;font-weight:400;color:var(--ink-mid);text-decoration:none;transition:color .15s;display:flex;align-items:baseline;gap:8px}
+    .toc__grid a:hover{color:var(--blue)}
+    .toc__grid .toc__num{font-size:12px;font-weight:600;color:var(--muted-light);min-width:20px}
+    @media(max-width:600px){.toc__grid{grid-template-columns:1fr}}
+
+    /* ── Content ── */
     .content{max-width:720px;margin:0 auto;padding:48px 24px 80px}
-    h1{font-size:32px;font-weight:700;margin-bottom:8px;letter-spacing:-.5px}
-    h2{font-size:20px;font-weight:600;margin-top:40px;margin-bottom:16px;color:var(--ink)}
+    .section{margin-top:48px;padding-top:48px;border-top:1px solid var(--border-light)}
+    .section:first-child{margin-top:0;padding-top:0;border-top:none}
+    .section__num{font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--accent);margin-bottom:8px;display:block}
+
+    h2{font-size:22px;font-weight:700;margin-bottom:16px;color:var(--ink);letter-spacing:-.3px;line-height:1.2}
     h3{font-size:16px;font-weight:600;margin-top:24px;margin-bottom:8px;color:var(--ink-mid)}
-    p,li{font-size:15px;margin-bottom:12px;color:var(--ink-mid)}
-    ul,ol{padding-left:24px;margin-bottom:16px}
-    li{margin-bottom:8px}
-    .date{font-size:13px;color:var(--muted);margin-bottom:32px}
-    a{color:#1A56DB;text-decoration:none}
+    p,li{font-size:15px;margin-bottom:12px;color:var(--ink-mid);line-height:1.7}
+    ul,ol{padding-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px;padding-left:4px}
+    li::marker{color:var(--muted-light)}
+
+    /* ── Callout ── */
+    .callout{background:var(--blue-light);border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
+    .callout svg{width:18px;height:18px;color:var(--blue);flex-shrink:0;margin-top:2px}
+    .callout p{font-size:14px;color:var(--ink-mid);margin:0;line-height:1.6}
+
+    a{color:var(--blue);text-decoration:none;font-weight:500}
     a:hover{text-decoration:underline}
-    .footer{font-size:13px;color:var(--muted);margin-top:60px;padding-top:24px;border-top:1px solid var(--border);text-align:center}
+
+    /* ── Contact card ── */
+    .contact{background:var(--surface);border:1px solid var(--border-light);border-radius:12px;padding:24px 28px;margin-top:8px;box-shadow:var(--shadow-sm)}
+    .contact__name{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:12px}
+    .contact__row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .contact__row svg{width:16px;height:16px;color:var(--muted)}
+    .contact__row a,.contact__row span{font-size:14px;color:var(--ink-mid);font-weight:400}
+
+    /* ── Footer ── */
+    .footer{max-width:720px;margin:0 auto;padding:0 24px 48px}
+    .footer__inner{font-size:13px;color:var(--muted);padding-top:24px;border-top:1px solid var(--border-light);text-align:center;display:flex;justify-content:center;align-items:center;gap:16px}
+    .footer__sep{width:3px;height:3px;border-radius:50%;background:var(--border);display:inline-block}
+    .footer__inner a{color:var(--muted);font-weight:400;text-decoration:none;transition:color .15s}
+    .footer__inner a:hover{color:var(--ink)}
+
+    /* ── Responsive ── */
+    @media(max-width:600px){
+      .hero h1{font-size:30px}
+      .hero__sub{font-size:15px}
+      .section{margin-top:36px;padding-top:36px}
+      h2{font-size:19px}
+    }
   </style>
 </head>
 <body>
   <nav class="nav">
     <div class="nav__bar">
       <a href="/" class="nav__brand">Hel<span class="nav__brand-cross"></span>m</a>
-      <a href="/" class="nav__back">&larr; Back to home</a>
+      <a href="/" class="nav__back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Back to home
+      </a>
     </div>
   </nav>
 
-  <div class="content">
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero__label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Legal
+    </div>
     <h1>Terms of Use</h1>
-    <p class="date">Last updated: April 3, 2026</p>
+    <p class="hero__sub">The rules that govern how you use Helm. Written in plain language.</p>
+    <p class="hero__date">Last updated April 3, 2026</p>
+  </header>
 
-    <p>These Terms of Use ("Terms") govern your access to and use of the Helm mobile application and related services (collectively, the "Service"), provided by Ruwad ("we", "us", "our"). By creating an account or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
-
-    <h2>1. The Service</h2>
-    <p>Helm is an AI-powered knowledge capture application that helps you organize thoughts, meetings, tasks, and decisions. The Service processes your content using artificial intelligence to extract structured information, generate summaries, create tasks, and organize your knowledge.</p>
-    <p>The Service may include integrations with third-party platforms (such as Google Calendar and Gmail) that you can optionally enable. Use of these integrations is subject to the respective third-party terms and our <a href="/helm/privacy.html">Privacy Policy</a>.</p>
-
-    <h2>2. Eligibility</h2>
-    <p>You must be at least 16 years of age to use Helm. By using the Service, you represent that you meet this age requirement. If you are using the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
-
-    <h2>3. Your Account</h2>
-    <p>You must sign in with a Google or Apple account to use Helm. You are responsible for:</p>
-    <ul>
-      <li>Maintaining the security of your account and authentication credentials</li>
-      <li>All activity that occurs under your account</li>
-      <li>Notifying us promptly of any unauthorized use of your account</li>
-    </ul>
-    <p>You may delete your account at any time through Settings. Upon deletion, all your data will be permanently removed in accordance with our <a href="/helm/privacy.html">Privacy Policy</a>.</p>
-
-    <h2>4. Workspaces and Teams</h2>
-    <p>Helm organizes content within workspaces. If you are a member of a team workspace:</p>
-    <ul>
-      <li>Content you create within the workspace may be visible to other workspace members</li>
-      <li>The workspace owner or administrator may manage membership and workspace settings</li>
-      <li>If you leave a workspace, your contributions to that workspace remain accessible to other members</li>
-    </ul>
-
-    <h2>5. Your Content</h2>
-    <p>You retain ownership of all content you create in Helm, including text, voice recordings, images, and files ("Your Content"). By using the Service, you grant us a limited, non-exclusive license to:</p>
-    <ul>
-      <li>Process Your Content using AI services solely for the purpose of delivering the Service to you</li>
-      <li>Store Your Content on our infrastructure to provide the Service</li>
-      <li>Display Your Content to you and authorized workspace members</li>
-    </ul>
-    <p>This license terminates when you delete Your Content or your account.</p>
-
-    <h2>6. AI-Generated Content</h2>
-    <p>Helm uses AI to generate summaries, extract tasks, detect action items, and organize your content ("AI Output"). You acknowledge that:</p>
-    <ul>
-      <li>AI Output may not always be accurate, complete, or up to date</li>
-      <li>You are responsible for reviewing and verifying AI Output before relying on it</li>
-      <li>AI Output is provided as a productivity aid, not as professional advice</li>
-      <li>We do not guarantee the quality, reliability, or suitability of AI Output for any particular purpose</li>
-    </ul>
-
-    <h2>7. Acceptable Use</h2>
-    <p>You agree not to:</p>
-    <ul>
-      <li>Use the Service for any unlawful purpose or in violation of any applicable laws</li>
-      <li>Attempt to access other users' data, workspaces, or accounts without authorization</li>
-      <li>Reverse engineer, decompile, or disassemble any part of the Service</li>
-      <li>Upload malicious content, malware, or files designed to disrupt the Service</li>
-      <li>Use the Service to store or transmit content that infringes third-party intellectual property rights</li>
-      <li>Attempt to circumvent rate limits, security measures, or access controls</li>
-      <li>Use automated means (bots, scrapers) to access the Service without our written permission</li>
-      <li>Resell, sublicense, or commercially exploit the Service without authorization</li>
-    </ul>
-    <p>We reserve the right to suspend or terminate your access if you violate these terms.</p>
-
-    <h2>8. Subscriptions and Payment</h2>
-    <p>Helm may offer free and paid subscription plans. If you subscribe to a paid plan:</p>
-    <ul>
-      <li>Payment is processed through the Apple App Store or Google Play Store</li>
-      <li>Subscriptions automatically renew unless cancelled before the renewal date</li>
-      <li>You may cancel your subscription at any time through your device's app store settings</li>
-      <li>Refunds are subject to the policies of the applicable app store</li>
-    </ul>
-    <p>We reserve the right to change pricing with reasonable notice. Changes will not affect your current billing period.</p>
-
-    <h2>9. Third-Party Services</h2>
-    <p>The Service integrates with third-party services including:</p>
-    <ul>
-      <li><strong>Clerk:</strong> Authentication services (Google and Apple sign-in)</li>
-      <li><strong>Anthropic and OpenAI:</strong> AI processing for content analysis and knowledge extraction</li>
-      <li><strong>Google APIs:</strong> Calendar and Gmail integrations (when enabled by you)</li>
-      <li><strong>Sentry:</strong> Error tracking and diagnostics</li>
-    </ul>
-    <p>Your use of these integrations is also subject to the respective third-party terms of service. We are not responsible for the practices or content of third-party services.</p>
-
-    <h2>10. Intellectual Property</h2>
-    <p>The Service, including its design, features, code, documentation, and branding (excluding Your Content), is owned by Ruwad and protected by applicable intellectual property laws. You are granted a limited, non-exclusive, non-transferable, revocable license to use the Service for its intended purpose.</p>
-    <p>You may not copy, modify, distribute, or create derivative works based on the Service without our written permission.</p>
-
-    <h2>11. Service Availability</h2>
-    <p>We strive to keep Helm available at all times, but we do not guarantee uninterrupted or error-free access. The Service may be temporarily unavailable due to:</p>
-    <ul>
-      <li>Scheduled maintenance (we will provide advance notice when possible)</li>
-      <li>Unplanned outages or technical issues</li>
-      <li>Factors outside our control (third-party service disruptions, network issues)</li>
-    </ul>
-    <p>Some features require an active internet connection for AI processing. Helm provides offline draft capabilities with synchronization on reconnect.</p>
-
-    <h2>12. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law:</p>
-    <ul>
-      <li>The Service is provided "as is" and "as available" without warranties of any kind, whether express, implied, or statutory</li>
-      <li>We disclaim all warranties including merchantability, fitness for a particular purpose, and non-infringement</li>
-      <li>We are not liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service</li>
-      <li>Our total aggregate liability shall not exceed the amount you paid for the Service in the twelve (12) months preceding the claim</li>
-    </ul>
-
-    <h2>13. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless Ruwad, its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including reasonable legal fees) arising from your use of the Service, violation of these Terms, or infringement of any third-party rights.</p>
-
-    <h2>14. Termination</h2>
-    <p>You may terminate your use of the Service at any time by deleting your account. We may suspend or terminate your access if:</p>
-    <ul>
-      <li>You violate these Terms or our Acceptable Use policy</li>
-      <li>Your use of the Service poses a security risk or may harm other users</li>
-      <li>Required by law or legal process</li>
-      <li>We discontinue the Service (with reasonable notice)</li>
-    </ul>
-    <p>Upon termination, your right to use the Service ceases immediately. Sections that by their nature should survive (Limitation of Liability, Indemnification, Governing Law) will continue to apply.</p>
-
-    <h2>15. Apple App Store Terms</h2>
-    <p>If you access the Service through the Apple App Store, you acknowledge that:</p>
-    <ul>
-      <li>These Terms are between you and Ruwad, not Apple. Apple has no obligation to provide maintenance or support for the Service</li>
-      <li>In the event of a warranty failure, Apple's sole remedy is a refund of the purchase price (if any)</li>
-      <li>Apple is not responsible for addressing any claims related to the Service</li>
-      <li>Apple is a third-party beneficiary of these Terms and may enforce them against you</li>
-    </ul>
-
-    <h2>16. Changes to Terms</h2>
-    <p>We may update these Terms from time to time. We will notify you of material changes by posting the updated terms on our website and, where appropriate, through in-app notification. Your continued use of the Service after the changes take effect constitutes acceptance of the updated Terms. If you do not agree to the changes, you should stop using the Service.</p>
-
-    <h2>17. Governing Law and Disputes</h2>
-    <p>These Terms are governed by the laws of the Kingdom of Saudi Arabia. Any disputes arising from or relating to these Terms or the Service shall be resolved through good-faith negotiation. If negotiation fails, disputes shall be submitted to the competent courts in the Kingdom of Saudi Arabia.</p>
-
-    <h2>18. General Provisions</h2>
-    <ul>
-      <li><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the entire agreement between you and Ruwad regarding the Service</li>
-      <li><strong>Severability:</strong> If any provision of these Terms is found unenforceable, the remaining provisions continue in full force</li>
-      <li><strong>No Waiver:</strong> Our failure to enforce any provision does not constitute a waiver of that provision</li>
-      <li><strong>Assignment:</strong> You may not assign your rights under these Terms without our written consent. We may assign our rights to an affiliate or successor</li>
-    </ul>
-
-    <h2>19. Contact Us</h2>
-    <p>For questions about these Terms, contact us at:</p>
-    <p>
-      <strong>Ruwad</strong><br>
-      Email: <a href="mailto:abdulaziz@ruwad.ai">abdulaziz@ruwad.ai</a><br>
-      Website: <a href="https://ruwad.solutions">https://ruwad.solutions</a>
-    </p>
-
-    <div class="footer">Helm by Ruwad &copy; 2026</div>
+  <!-- Table of Contents -->
+  <div class="toc">
+    <div class="toc__card">
+      <div class="toc__title">Contents</div>
+      <ol class="toc__grid">
+        <li><a href="#service"><span class="toc__num">01</span> The Service</a></li>
+        <li><a href="#eligibility"><span class="toc__num">02</span> Eligibility</a></li>
+        <li><a href="#account"><span class="toc__num">03</span> Your Account</a></li>
+        <li><a href="#workspaces"><span class="toc__num">04</span> Workspaces & Teams</a></li>
+        <li><a href="#content"><span class="toc__num">05</span> Your Content</a></li>
+        <li><a href="#ai"><span class="toc__num">06</span> AI-Generated Content</a></li>
+        <li><a href="#use"><span class="toc__num">07</span> Acceptable Use</a></li>
+        <li><a href="#subscriptions"><span class="toc__num">08</span> Subscriptions & Payment</a></li>
+        <li><a href="#thirdparty"><span class="toc__num">09</span> Third-Party Services</a></li>
+        <li><a href="#ip"><span class="toc__num">10</span> Intellectual Property</a></li>
+        <li><a href="#availability"><span class="toc__num">11</span> Service Availability</a></li>
+        <li><a href="#liability"><span class="toc__num">12</span> Limitation of Liability</a></li>
+        <li><a href="#indemnification"><span class="toc__num">13</span> Indemnification</a></li>
+        <li><a href="#termination"><span class="toc__num">14</span> Termination</a></li>
+        <li><a href="#apple"><span class="toc__num">15</span> Apple App Store Terms</a></li>
+        <li><a href="#changes"><span class="toc__num">16</span> Changes to Terms</a></li>
+        <li><a href="#law"><span class="toc__num">17</span> Governing Law</a></li>
+        <li><a href="#general"><span class="toc__num">18</span> General Provisions</a></li>
+        <li><a href="#contact"><span class="toc__num">19</span> Contact Us</a></li>
+      </ol>
+    </div>
   </div>
+
+  <!-- Sections -->
+  <div class="content">
+
+    <div class="section" id="service">
+      <span class="section__num">Section 01</span>
+      <h2>The Service</h2>
+      <p>Helm is an AI-powered knowledge capture application that helps you organize thoughts, meetings, tasks, and decisions. The Service processes your content using artificial intelligence to extract structured information, generate summaries, create tasks, and organize your knowledge.</p>
+      <p>The Service may include integrations with third-party platforms (such as Google Calendar and Gmail) that you can optionally enable. Use of these integrations is subject to the respective third-party terms and our <a href="/helm/privacy.html">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section" id="eligibility">
+      <span class="section__num">Section 02</span>
+      <h2>Eligibility</h2>
+      <p>You must be at least 16 years of age to use Helm. By using the Service, you represent that you meet this age requirement. If you are using the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+    </div>
+
+    <div class="section" id="account">
+      <span class="section__num">Section 03</span>
+      <h2>Your Account</h2>
+      <p>You must sign in with a Google or Apple account to use Helm. You are responsible for:</p>
+      <ul>
+        <li>Maintaining the security of your account and authentication credentials</li>
+        <li>All activity that occurs under your account</li>
+        <li>Notifying us promptly of any unauthorized use of your account</li>
+      </ul>
+      <p>You may delete your account at any time through Settings. Upon deletion, all your data will be permanently removed in accordance with our <a href="/helm/privacy.html">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section" id="workspaces">
+      <span class="section__num">Section 04</span>
+      <h2>Workspaces and Teams</h2>
+      <p>Helm organizes content within workspaces. If you are a member of a team workspace:</p>
+      <ul>
+        <li>Content you create within the workspace may be visible to other workspace members</li>
+        <li>The workspace owner or administrator may manage membership and workspace settings</li>
+        <li>If you leave a workspace, your contributions to that workspace remain accessible to other members</li>
+      </ul>
+    </div>
+
+    <div class="section" id="content">
+      <span class="section__num">Section 05</span>
+      <h2>Your Content</h2>
+      <p>You retain ownership of all content you create in Helm, including text, voice recordings, images, and files ("Your Content"). By using the Service, you grant us a limited, non-exclusive license to:</p>
+      <ul>
+        <li>Process Your Content using AI services solely for the purpose of delivering the Service to you</li>
+        <li>Store Your Content on our infrastructure to provide the Service</li>
+        <li>Display Your Content to you and authorized workspace members</li>
+      </ul>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <p>This license terminates when you delete Your Content or your account. We do not sell, rent, or share Your Content with third parties for their own purposes.</p>
+      </div>
+    </div>
+
+    <div class="section" id="ai">
+      <span class="section__num">Section 06</span>
+      <h2>AI-Generated Content</h2>
+      <p>Helm uses AI to generate summaries, extract tasks, detect action items, and organize your content ("AI Output"). You acknowledge that:</p>
+      <ul>
+        <li>AI Output may not always be accurate, complete, or up to date</li>
+        <li>You are responsible for reviewing and verifying AI Output before relying on it</li>
+        <li>AI Output is provided as a productivity aid, not as professional advice</li>
+        <li>We do not guarantee the quality, reliability, or suitability of AI Output for any particular purpose</li>
+      </ul>
+    </div>
+
+    <div class="section" id="use">
+      <span class="section__num">Section 07</span>
+      <h2>Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the Service for any unlawful purpose or in violation of any applicable laws</li>
+        <li>Attempt to access other users' data, workspaces, or accounts without authorization</li>
+        <li>Reverse engineer, decompile, or disassemble any part of the Service</li>
+        <li>Upload malicious content, malware, or files designed to disrupt the Service</li>
+        <li>Use the Service to store or transmit content that infringes third-party intellectual property rights</li>
+        <li>Attempt to circumvent rate limits, security measures, or access controls</li>
+        <li>Use automated means (bots, scrapers) to access the Service without our written permission</li>
+        <li>Resell, sublicense, or commercially exploit the Service without authorization</li>
+      </ul>
+      <p>We reserve the right to suspend or terminate your access if you violate these terms.</p>
+    </div>
+
+    <div class="section" id="subscriptions">
+      <span class="section__num">Section 08</span>
+      <h2>Subscriptions and Payment</h2>
+      <p>Helm may offer free and paid subscription plans. If you subscribe to a paid plan:</p>
+      <ul>
+        <li>Payment is processed through the Apple App Store or Google Play Store</li>
+        <li>Subscriptions automatically renew unless cancelled before the renewal date</li>
+        <li>You may cancel your subscription at any time through your device's app store settings</li>
+        <li>Refunds are subject to the policies of the applicable app store</li>
+      </ul>
+      <p>We reserve the right to change pricing with reasonable notice. Changes will not affect your current billing period.</p>
+    </div>
+
+    <div class="section" id="thirdparty">
+      <span class="section__num">Section 09</span>
+      <h2>Third-Party Services</h2>
+      <p>The Service integrates with third-party services including:</p>
+      <ul>
+        <li><strong>Clerk:</strong> Authentication services (Google and Apple sign-in)</li>
+        <li><strong>Anthropic and OpenAI:</strong> AI processing for content analysis and knowledge extraction</li>
+        <li><strong>Google APIs:</strong> Calendar and Gmail integrations (when enabled by you)</li>
+      </ul>
+      <p>Your use of these integrations is also subject to the respective third-party terms of service. We are not responsible for the practices or content of third-party services.</p>
+    </div>
+
+    <div class="section" id="ip">
+      <span class="section__num">Section 10</span>
+      <h2>Intellectual Property</h2>
+      <p>The Service, including its design, features, code, documentation, and branding (excluding Your Content), is owned by Ruwad and protected by applicable intellectual property laws. You are granted a limited, non-exclusive, non-transferable, revocable license to use the Service for its intended purpose.</p>
+      <p>You may not copy, modify, distribute, or create derivative works based on the Service without our written permission.</p>
+    </div>
+
+    <div class="section" id="availability">
+      <span class="section__num">Section 11</span>
+      <h2>Service Availability</h2>
+      <p>We strive to keep Helm available at all times, but we do not guarantee uninterrupted or error-free access. The Service may be temporarily unavailable due to:</p>
+      <ul>
+        <li>Scheduled maintenance (we will provide advance notice when possible)</li>
+        <li>Unplanned outages or technical issues</li>
+        <li>Factors outside our control (third-party service disruptions, network issues)</li>
+      </ul>
+      <p>Some features require an active internet connection for AI processing. Helm provides offline draft capabilities with synchronization on reconnect.</p>
+    </div>
+
+    <div class="section" id="liability">
+      <span class="section__num">Section 12</span>
+      <h2>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law:</p>
+      <ul>
+        <li>The Service is provided "as is" and "as available" without warranties of any kind, whether express, implied, or statutory</li>
+        <li>We disclaim all warranties including merchantability, fitness for a particular purpose, and non-infringement</li>
+        <li>We are not liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service</li>
+        <li>Our total aggregate liability shall not exceed the amount you paid for the Service in the twelve (12) months preceding the claim</li>
+      </ul>
+    </div>
+
+    <div class="section" id="indemnification">
+      <span class="section__num">Section 13</span>
+      <h2>Indemnification</h2>
+      <p>You agree to indemnify and hold harmless Ruwad, its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including reasonable legal fees) arising from your use of the Service, violation of these Terms, or infringement of any third-party rights.</p>
+    </div>
+
+    <div class="section" id="termination">
+      <span class="section__num">Section 14</span>
+      <h2>Termination</h2>
+      <p>You may terminate your use of the Service at any time by deleting your account. We may suspend or terminate your access if:</p>
+      <ul>
+        <li>You violate these Terms or our Acceptable Use policy</li>
+        <li>Your use of the Service poses a security risk or may harm other users</li>
+        <li>Required by law or legal process</li>
+        <li>We discontinue the Service (with reasonable notice)</li>
+      </ul>
+      <p>Upon termination, your right to use the Service ceases immediately. Sections that by their nature should survive (Limitation of Liability, Indemnification, Governing Law) will continue to apply.</p>
+    </div>
+
+    <div class="section" id="apple">
+      <span class="section__num">Section 15</span>
+      <h2>Apple App Store Terms</h2>
+      <p>If you access the Service through the Apple App Store, you acknowledge that:</p>
+      <ul>
+        <li>These Terms are between you and Ruwad, not Apple. Apple has no obligation to provide maintenance or support for the Service</li>
+        <li>In the event of a warranty failure, Apple's sole remedy is a refund of the purchase price (if any)</li>
+        <li>Apple is not responsible for addressing any claims related to the Service</li>
+        <li>Apple is a third-party beneficiary of these Terms and may enforce them against you</li>
+      </ul>
+    </div>
+
+    <div class="section" id="changes">
+      <span class="section__num">Section 16</span>
+      <h2>Changes to Terms</h2>
+      <p>We may update these Terms from time to time. We will notify you of material changes by posting the updated terms on our website and, where appropriate, through in-app notification. Your continued use of the Service after the changes take effect constitutes acceptance of the updated Terms. If you do not agree to the changes, you should stop using the Service.</p>
+    </div>
+
+    <div class="section" id="law">
+      <span class="section__num">Section 17</span>
+      <h2>Governing Law and Disputes</h2>
+      <p>These Terms are governed by the laws of the Kingdom of Saudi Arabia. Any disputes arising from or relating to these Terms or the Service shall be resolved through good-faith negotiation. If negotiation fails, disputes shall be submitted to the competent courts in the Kingdom of Saudi Arabia.</p>
+    </div>
+
+    <div class="section" id="general">
+      <span class="section__num">Section 18</span>
+      <h2>General Provisions</h2>
+      <ul>
+        <li><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the entire agreement between you and Ruwad regarding the Service</li>
+        <li><strong>Severability:</strong> If any provision of these Terms is found unenforceable, the remaining provisions continue in full force</li>
+        <li><strong>No Waiver:</strong> Our failure to enforce any provision does not constitute a waiver of that provision</li>
+        <li><strong>Assignment:</strong> You may not assign your rights under these Terms without our written consent. We may assign our rights to an affiliate or successor</li>
+      </ul>
+    </div>
+
+    <div class="section" id="contact">
+      <span class="section__num">Section 19</span>
+      <h2>Contact Us</h2>
+      <p>For questions about these Terms, reach out to us:</p>
+      <div class="contact">
+        <div class="contact__name">Ruwad</div>
+        <div class="contact__row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:abdulaziz@ruwad.ai">abdulaziz@ruwad.ai</a>
+        </div>
+        <div class="contact__row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://ruwad.solutions">ruwad.solutions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>Helm by Ruwad &copy; 2026</span>
+      <span class="footer__sep"></span>
+      <a href="/helm/privacy.html">Privacy</a>
+      <span class="footer__sep"></span>
+      <a href="/helm/support.html">Support</a>
+    </div>
+  </footer>
 </body>
 </html>
