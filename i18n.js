@@ -10,14 +10,14 @@
       'nav.how': 'How it works',
       'nav.features': 'Features',
       'nav.pricing': 'Pricing',
-      'nav.cta': 'Get Early Access',
+      'nav.cta': 'Download App',
 
       // Hero
-      'hero.tag': 'Pilot',
+      'hero.tag': 'Available Now',
       'hero.h1_1': 'You walk in prepared.',
       'hero.h1_2': 'You walk out handled.',
       'hero.p': 'Helm captures your conversations, extracts what matters, and acts on it. So you can think, decide, and move.',
-      'hero.btn_pilot': 'Join the Pilot',
+      'hero.btn_pilot': 'Download App',
       'hero.btn_how': 'See how it works',
       'hero.founder': 'Built by Ruwad — because we were drowning in our own meetings.',
       'hero.phrases': [
@@ -215,15 +215,13 @@
       'pricing.plus_cta': 'Contact Sales',
 
       // Nav
-      'nav.pilot': 'Join Pilot',
+      'nav.pilot': 'Download',
 
       // CTA
       'cta.h2_1': 'Your brain captures.',
       'cta.h2_2': 'Helm does the rest.',
-      'cta.p': "Free during pilot. We'll always have a generous free tier.",
-      'cta.btn_submit': 'Join the Pilot',
-      'cta.success': "You're in! We'll email you when Helm is ready.",
-      'cta.error': "Couldn't connect. Try again?",
+      'cta.p': 'Available now on iOS. Try it free.',
+      'cta.btn_submit': 'Download on App Store',
 
       // Footer
       'footer.support': 'Support',
@@ -248,14 +246,14 @@
       'nav.how': 'كيف يعمل',
       'nav.features': 'المميزات',
       'nav.pricing': 'الأسعار',
-      'nav.cta': 'احصل على وصول مبكر',
+      'nav.cta': 'حمّل التطبيق',
 
       // Hero
-      'hero.tag': 'تجربة مبكرة',
+      'hero.tag': 'متوفر الآن',
       'hero.h1_1': 'تدخل كل اجتماع جاهز.',
       'hero.h1_2': 'وتطلع وكل شي منجز.',
       'hero.p': 'حلم يلتقط محادثاتك، يستخرج اللي يهم، ويتصرف. عشان تفكر، تقرر، وتتحرك.',
-      'hero.btn_pilot': 'انضم للتجربة',
+      'hero.btn_pilot': 'حمّل التطبيق',
       'hero.btn_how': 'شوف كيف',
       'hero.founder': 'صنعته رواد — لأننا كنا نغرق في اجتماعاتنا.',
       'hero.phrases': [
@@ -315,7 +313,7 @@
       // How it works
       'how.tag': 'آلية العمل',
       'how.h2': 'مدخل خام. نتائج جاهزة.',
-      'how.p': 'صوت، اجتماعات، صور، ملفات — محرك هلم يعالج كل شيء تلقائيًا.',
+      'how.p': 'صوت، اجتماعات، صور، ملفات — محرك حلم يعالج كل شيء تلقائيًا.',
       'how.step1_h': 'أرسل أي شيء',
       'how.step1_p': 'صوت، نص، صور، ملفات — أضفها كلها بمحادثة وحدة. بدون قوالب.',
       'how.chip_voice': 'تسجيل صوتي 2:34',
@@ -453,15 +451,13 @@
       'pricing.plus_cta': 'كلّمنا',
 
       // Nav
-      'nav.pilot': 'انضم للتجربة',
+      'nav.pilot': 'حمّل',
 
       // CTA
       'cta.h2_1': 'أنت تفكّر.',
       'cta.h2_2': 'حلم يسوّي الباقي.',
-      'cta.p': 'مجاني خلال التجربة. دائماً بيكون في باقة مجانية سخية.',
-      'cta.btn_submit': 'انضم للتجربة',
-      'cta.success': 'تم التسجيل! سنراسلك عندما يصبح حلم جاهزاً.',
-      'cta.error': 'ما قدرنا نتصل. حاول مرة ثانية؟',
+      'cta.p': 'متوفر الآن على iOS. جرّبه مجاناً.',
+      'cta.btn_submit': 'حمّل من App Store',
 
       // Footer
       'footer.support': 'الدعم',

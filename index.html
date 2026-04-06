@@ -597,8 +597,8 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="#how" data-i18n="nav.how">How it works</a></li>
-      <li><a href="#cta" data-i18n="nav.pilot">Join Pilot</a></li>
-      <li><a href="#cta" class="nav__cta" data-i18n="nav.cta">Get Early Access</a></li>
+      <li><a href="#cta" data-i18n="nav.pilot">Download</a></li>
+      <li><a href="https://testflight.apple.com/join/gzt3r1pG" class="nav__cta" target="_blank" rel="noopener" data-i18n="nav.cta">Download App</a></li>
       <li><button class="lang-toggle" id="langToggle">عربي</button></li>
     </ul>
     <button class="nav__mob" id="navMob" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
@@ -623,7 +623,7 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
       <div class="hero__accent rv d1" style="min-height:1.2em"><span class="hero__accent-text" id="heroTyping"></span><span class="hero__cursor"></span></div>
       <p class="hero__p rv d2" data-i18n="hero.p">Helm captures your conversations, extracts what matters, and acts on it. So you can think, decide, and move.</p>
       <div class="hero__btns rv d3">
-        <a href="#cta" class="btn btn--blue" data-i18n="hero.btn_pilot">Join the Pilot</a>
+        <a href="https://testflight.apple.com/join/gzt3r1pG" class="btn btn--blue" target="_blank" rel="noopener" data-i18n="hero.btn_pilot">Download App</a>
         <a href="#how" class="btn btn--ghost" data-i18n="hero.btn_how">See how it works</a>
       </div>
       <div class="hero__proof rv d4">
@@ -998,13 +998,13 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
       <span data-i18n="cta.h2_1">Your brain captures.</span><br>
       <span class="cta-end__accent" data-i18n="cta.h2_2">Helm does the rest.</span>
     </h2>
-    <p class="cta-end__p rv d1" data-i18n="cta.p">Free during pilot. We'll always have a generous free tier.</p>
-    <form id="waitlistForm" class="rv d2" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center">
-      <input type="email" id="waitlistEmail" required placeholder="your@email.com" style="flex:1;min-width:220px;padding:14px 20px;border-radius:999px;border:1px solid var(--border);font-size:16px;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-      <button type="submit" class="btn btn--blue" id="waitlistBtn" data-i18n="cta.btn_submit">Join the Pilot</button>
-    </form>
-    <p id="waitlistSuccess" style="display:none;font-size:15px;color:#28A745;font-weight:600;margin-top:12px" data-i18n="cta.success">You're in! We'll email you when Helm is ready.</p>
-    <p id="waitlistError" style="display:none;font-size:14px;color:#DC3545;margin-top:8px" data-i18n="cta.error">Couldn't connect. Try again?</p>
+    <p class="cta-end__p rv d1" data-i18n="cta.p">Available now on iOS. Try it free.</p>
+    <div class="rv d2" style="display:flex;justify-content:center">
+      <a href="https://testflight.apple.com/join/gzt3r1pG" class="btn btn--blue" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-size:17px" data-i18n="cta.btn_submit">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="flex-shrink:0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1064,11 +1064,6 @@ if(typeof HelmI18n!=='undefined'){
   // Set initial state
   if(HelmI18n.lang==='ar')langBtn.textContent='English';
 }
-
-// WAITLIST FORM
-var wForm=document.getElementById('waitlistForm'),wBtn=document.getElementById('waitlistBtn'),wSuccess=document.getElementById('waitlistSuccess'),wError=document.getElementById('waitlistError');
-if(wForm)wForm.addEventListener('submit',function(e){e.preventDefault();var email=document.getElementById('waitlistEmail').value;wBtn.disabled=true;wBtn.textContent='Joining...';wError.style.display='none';
-fetch('https://buttondown.com/api/emails/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,tag:'pilot'})}).then(function(r){if(r.ok||r.status===201){wForm.style.display='none';wSuccess.style.display='block';if(typeof plausible!=='undefined')plausible('email-signup')}else{throw new Error('fail')}}).catch(function(){wError.style.display='block';wBtn.disabled=false;wBtn.textContent='Join the Pilot'})});
 
 // AGENT CURSOR + TYPING (loops)
 (function(){
@@ -1213,7 +1208,7 @@ window.addEventListener('langchange',function(){
   var isAr=HelmI18n.lang==='ar';
   var pipeH=document.querySelectorAll('.pipe-body__h');
   var pipeP=document.querySelectorAll('.pipe-body__p');
-  var hAr=['التقط أي شيء','هلم يفكّر عنك','نتائج منظمة، فورًا'];
+  var hAr=['التقط أي شيء','حلم يفكّر عنك','نتائج منظمة، فورًا'];
   var hEn=['Capture anything','Helm does the thinking','Structured action, instantly'];
   var pAr=['صوت، نص، صور، ملفات — ارمِ كل شيء بمحادثة وحدة. بدون قوالب.','يفهم مدخلاتك، يستخرج المهم، ويحوّلها إلى خطوات واضحة — تلقائيًا.','كل تسجيل ينتج: محضر، مهام مرتّبة، وخطوة تالية واضحة.'];
   var pEn=['Voice, text, photos, PDFs — dump it all into one thread. No templates, no formatting.','Understands your input, finds what matters, and turns it into clear actions — automatically.','Every input produces meeting minutes, prioritized tasks, and a specific next action.'];
@@ -1223,7 +1218,7 @@ window.addEventListener('langchange',function(){
   var sectionH=document.querySelector('#features .section__h');
   if(sectionH)sectionH.textContent=isAr?'مدخلات خام. أفعال منظمة.':'Raw input in. Structured action out.';
   var sectionP=document.querySelector('#features .section__p');
-  if(sectionP)sectionP.textContent=isAr?'مذكرات صوتية، محاضر اجتماعات، صور، مستندات — محرك هلم الذكي يعالج كل شيء تلقائيًا.':'Voice memos, meeting notes, photos, documents — Helm understands your input and turns it into clear actions automatically.';
+  if(sectionP)sectionP.textContent=isAr?'مذكرات صوتية، محاضر اجتماعات، صور، مستندات — محرك حلم الذكي يعالج كل شيء تلقائيًا.':'Voice memos, meeting notes, photos, documents — Helm understands your input and turns it into clear actions automatically.';
 });
 
 // Canvas Arabic
