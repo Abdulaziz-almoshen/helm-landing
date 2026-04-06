@@ -1183,6 +1183,29 @@ window.addEventListener('langchange',function(){
   var navItems=ph.querySelectorAll('.ph-nav__item span');
   if(navItems[0])navItems[0].textContent=isAr?'المواضيع':'Topics';
   if(navItems[1])navItems[1].textContent=isAr?'المهام':'Tasks';
+  // Brief items
+  var briefItems=ph.querySelectorAll('.ph-brief div[style*="display:flex"] > span[style*="flex:1"]');
+  var briefAr=['اعتماد الميزانية — أحمد ينتظر','مراجعة API — تعطّل الواجهة','عرض المجلس الساعة ٤'];
+  var briefEn=['Budget approval — Ahmed waiting','API review — blocks frontend','Board deck due at 4 PM'];
+  briefItems.forEach(function(b,i){if(briefAr[i])b.textContent=isAr?briefAr[i]:briefEn[i]});
+  // Brief badges (Overdue, Blocking, Today)
+  var briefBadges=ph.querySelectorAll('.ph-brief span[style*="border-radius:3px"]');
+  var badgesAr=['متأخر','معطّل','اليوم'];
+  var badgesEn=['Overdue','Blocking','Today'];
+  briefBadges.forEach(function(b,i){if(badgesAr[i])b.textContent=isAr?badgesAr[i]:badgesEn[i]});
+  // You're blocking section
+  var blockTitle=ph.querySelector('div[style*="text-transform:uppercase"][style*="color:#F59E0B"]');
+  if(blockTitle)blockTitle.innerHTML=isAr?'⛔ أنت تعطّل':'⛔ YOU\'RE BLOCKING';
+  var blockItems=ph.querySelectorAll('div[style*="border-radius:50%"] + span[style*="flex:1"]');
+  var blockAr=['سارة — ملاحظات التصميم','أحمد — اعتماد الميزانية'];
+  var blockEn=['Sara — design feedback','Ahmed — budget sign-off'];
+  blockItems.forEach(function(b,i){if(blockAr[i])b.textContent=isAr?blockAr[i]:blockEn[i]});
+  // AI hint
+  var aiHint=ph.querySelector('div[style*="accent-light"] span:last-child');
+  if(aiHint&&(aiHint.textContent.includes('Reply')||aiHint.textContent.includes('رد')))
+    aiHint.textContent=isAr?'رد على أحمد الآن — سارة تفك الحظر عن ٤ أشخاص.':'Reply to Ahmed now — Sara unblocks 4 people downstream.';
+  // Brief sub text
+  if(briefSub)briefSub.textContent=isAr?'٣ أشياء ما تنتظر':'3 things that can\'t wait';
 });
 
 // Pipeline Arabic
@@ -1232,6 +1255,9 @@ window.addEventListener('langchange',function(){
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+
+// Re-apply current language after all listeners are registered
+if(typeof HelmI18n!=='undefined'){HelmI18n.setLang(HelmI18n.lang);}
 </script>
 </body>
 </html>
