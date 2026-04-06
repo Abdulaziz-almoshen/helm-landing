@@ -315,9 +315,9 @@
       // How it works
       'how.tag': 'آلية العمل',
       'how.h2': 'مدخل خام. نتائج جاهزة.',
-      'how.p': 'صوت، اجتماعات، صور، ملفات — محرك حلم يعالج كل شيء في 6 ثوانٍ.',
-      'how.step1_h': 'ارمِ كل شيء',
-      'how.step1_p': 'صوت، نص، صور، ملفات — حطّها كلها بمحادثة وحدة. بدون قوالب.',
+      'how.p': 'صوت، اجتماعات، صور، ملفات — محرك هلم يعالج كل شيء تلقائيًا.',
+      'how.step1_h': 'أرسل أي شيء',
+      'how.step1_p': 'صوت، نص، صور، ملفات — أضفها كلها بمحادثة وحدة. بدون قوالب.',
       'how.chip_voice': 'تسجيل صوتي 2:34',
       'how.chip_text': 'ملاحظات اجتماع',
       'how.chip_photo': 'صورة سبورة',
@@ -489,7 +489,7 @@
   }
 
   var HelmI18n = {
-    lang: 'en',
+    lang: 'ar',
 
     /**
      * Return translation for a key in the current language.
@@ -543,9 +543,6 @@
 
   window.HelmI18n = HelmI18n;
 
-  // Auto-detect Arabic browser language
-  var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  if (browserLang.startsWith('ar')) {
-    HelmI18n.setLang('ar');
-  }
+  // Always start in Arabic. User can toggle to English manually.
+  HelmI18n.setLang('ar');
 })();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,11 +7,11 @@
 <meta name="description" content="Helm doesn't track your work. It prepares you for it. AI-powered context gathering and proactive task execution.">
 <meta property="og:title" content="Helm — Your Day, Already Prepared">
 <meta property="og:description" content="Helm captures your conversations, extracts what matters, and acts on it. AI-powered. Arabic-first.">
-<meta property="og:image" content="https://helm.app/assets/og.png">
-<meta property="og:url" content="https://helm.app">
+<meta property="og:image" content="https://ruwad.solutions/assets/og.png">
+<meta property="og:url" content="https://ruwad.solutions">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<script defer data-domain="helm.app" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="ruwad.solutions" src="https://plausible.io/js/script.js"></script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23E08050'/%3E%3Cstop offset='50%25' stop-color='%23E08050'/%3E%3Cstop offset='100%25' stop-color='%23E08050'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='50' y='70' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='60' fill='white'%3EH%3C/text%3E%3Crect x='22' y='46' width='24' height='5' rx='2.5' fill='url(%23g)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -703,7 +703,7 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
         <div class="scene__transform-ring">
           <div class="scene__transform-icon"><svg width="20" height="20"><use href="#i-zap"/></svg></div>
         </div>
-        <div class="scene__transform-label" data-i18n="scene.transform">6 seconds</div>
+        <div class="scene__transform-label" data-i18n="scene.transform">instantly</div>
       </div>
       <div class="scene__order">
         <div class="scene__label scene__label--green"><svg width="11" height="11"><use href="#i-check"/></svg><span data-i18n="scene.order_label">After Helm processes it</span></div>
@@ -752,8 +752,8 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
         <div class="pipe-phase">
           <div class="pipe-rail"><div class="pipe-num">2</div></div>
           <div class="pipe-body">
-            <h3 class="pipe-body__h" data-i18n="how.step2_h">AI reasons in ~6 seconds</h3>
-            <p class="pipe-body__p" data-i18n="how.step2_p">Six-layer pipeline: extract facts, classify urgency, plan actions, research context, map people, build memory.</p>
+            <h3 class="pipe-body__h" data-i18n="how.step2_h">Helm does the thinking</h3>
+            <p class="pipe-body__p" data-i18n="how.step2_p">Understands your input, finds what matters, and turns it into clear actions — automatically.</p>
             <div class="pipe-engine-card">
               <div class="pipe-engine-top">
                 <div class="pipe-engine-spark">✦</div>
@@ -761,7 +761,7 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
                   <div class="pipe-engine-title" data-i18n="how.engine_title">Helm AI Engine</div>
                   <div class="pipe-engine-sub" data-i18n="how.engine_sub">Processing "Q1 Planning Review"</div>
                 </div>
-                <div class="pipe-engine-time">~6s</div>
+                <div class="pipe-engine-time">✦</div>
               </div>
               <div class="pipe-stages">
                 <span class="pipe-stage pipe-stage--done" data-i18n="how.stage_extract">Extract ✓</span>
@@ -1023,7 +1023,7 @@ html[dir="rtl"] .canvas-doc__breadcrumb{margin-left:0;margin-right:12px}
 </footer>
 
 <!-- ═══ SCRIPTS ═══ -->
-<script src="i18n.js"></script>
+<script src="i18n.js?v=2"></script>
 <script>
 // NAV SCROLL
 const nav=document.getElementById('nav');
@@ -1041,7 +1041,7 @@ const sceneEl=document.getElementById('sceneEl');
 if(sceneEl){const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){sceneEl.classList.add('vis');so.unobserve(e.target)}})},{threshold:.15});so.observe(sceneEl)}
 
 // HERO TYPING
-const phrases=['Helm prepares.','Helm extracts.','Helm prioritizes.','Helm follows up.','Helm remembers.'];
+const phrases=(typeof HelmI18n!=='undefined'&&Array.isArray(HelmI18n.t('hero.phrases')))?HelmI18n.t('hero.phrases'):['Helm prepares.','Helm extracts.','Helm prioritizes.','Helm follows up.','Helm remembers.'];
 let pi=0;const tEl=document.getElementById('heroTyping');
 function typePhrase(){const p=phrases[pi];tEl.textContent='';let ci=0;const t=setInterval(()=>{tEl.textContent=p.slice(0,++ci);if(ci===p.length){clearInterval(t);setTimeout(()=>{tEl.style.transition='opacity .4s';tEl.style.opacity='0';setTimeout(()=>{pi=(pi+1)%phrases.length;tEl.style.opacity='1';typePhrase()},500)},2500)}},80)}
 setTimeout(typePhrase,1500);
@@ -1190,17 +1190,17 @@ window.addEventListener('langchange',function(){
   var isAr=HelmI18n.lang==='ar';
   var pipeH=document.querySelectorAll('.pipe-body__h');
   var pipeP=document.querySelectorAll('.pipe-body__p');
-  var hAr=['التقط أي شيء','الذكاء الاصطناعي يحلل في ~٦ ثوانٍ','نتائج منظمة، فورًا'];
-  var hEn=['Capture anything','AI reasons in ~6 seconds','Structured action, instantly'];
-  var pAr=['صوت، نص، صور، ملفات — ارمِ كل شيء بمحادثة وحدة. بدون قوالب.','ست طبقات: استخراج، تصنيف، تخطيط، بحث، ربط أشخاص، بناء ذاكرة.','كل تسجيل ينتج: محضر، مهام مرتّبة، وخطوة تالية واضحة.'];
-  var pEn=['Voice, text, photos, PDFs — dump it all into one thread. No templates, no formatting.','Six-layer pipeline: extract facts, classify urgency, plan actions, research context, map people, build memory.','Every input produces meeting minutes, prioritized tasks, and a specific next action.'];
+  var hAr=['التقط أي شيء','هلم يفكّر عنك','نتائج منظمة، فورًا'];
+  var hEn=['Capture anything','Helm does the thinking','Structured action, instantly'];
+  var pAr=['صوت، نص، صور، ملفات — ارمِ كل شيء بمحادثة وحدة. بدون قوالب.','يفهم مدخلاتك، يستخرج المهم، ويحوّلها إلى خطوات واضحة — تلقائيًا.','كل تسجيل ينتج: محضر، مهام مرتّبة، وخطوة تالية واضحة.'];
+  var pEn=['Voice, text, photos, PDFs — dump it all into one thread. No templates, no formatting.','Understands your input, finds what matters, and turns it into clear actions — automatically.','Every input produces meeting minutes, prioritized tasks, and a specific next action.'];
   pipeH.forEach(function(h,i){h.textContent=isAr?(hAr[i]||h.textContent):(hEn[i]||h.textContent)});
   pipeP.forEach(function(p,i){p.textContent=isAr?(pAr[i]||p.textContent):(pEn[i]||p.textContent)});
   // Section heading
   var sectionH=document.querySelector('#features .section__h');
   if(sectionH)sectionH.textContent=isAr?'مدخلات خام. أفعال منظمة.':'Raw input in. Structured action out.';
   var sectionP=document.querySelector('#features .section__p');
-  if(sectionP)sectionP.textContent=isAr?'مذكرات صوتية، محاضر اجتماعات، صور، مستندات — محرك حلم الذكي يعالج كل شيء في ~٦ ثوانٍ.':'Voice memos, meeting notes, photos, documents — Helm\'s six-layer AI pipeline processes everything in ~6 seconds.';
+  if(sectionP)sectionP.textContent=isAr?'مذكرات صوتية، محاضر اجتماعات، صور، مستندات — محرك هلم الذكي يعالج كل شيء تلقائيًا.':'Voice memos, meeting notes, photos, documents — Helm understands your input and turns it into clear actions automatically.';
 });
 
 // Canvas Arabic
